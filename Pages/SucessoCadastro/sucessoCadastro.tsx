@@ -6,15 +6,32 @@ import { Button } from "@/components/UI/Button/button";
 import type { SucessoCadastroPageProps } from "./sucessoCadastro.types";
 import * as S from "./sucessoCadastro.styles";
 
+import { useCardStore } from "@/stores/useCardStore";
+
 export default function SucessoCadastroPage({
-    numeroCartao = "1234 5678 9012 3456",
-    nomeTitular = "João Carlos Pereira",
-    vencimento = "04/32",
+    numeroCartao = "",
+    nomeTitular = "",
+    vencimento = "",
 }: SucessoCadastroPageProps) {
     const handleAvancar = () => {
         console.log("Navegando para Meus Cartões...");
         router.push("/meusCartoes");
     };
+
+    const {
+        cards: zustandCards,
+        loadInitialCards,
+        removeCard,
+        clearAllCards,
+        resetStore,
+    } = useCardStore();
+
+    const [cards, setCards] = React.useState(zustandCards);
+
+    React.useEffect(() => {
+        // Carregar cartões do Zustand
+        setCards(zustandCards);
+    }, [zustandCards]);
 
     const handleVoltar = () => {
         // Voltar para a tela inicial (pular o formulário)
@@ -37,9 +54,9 @@ export default function SucessoCadastroPage({
 
                     <S.CardContainer>
                         <VirtualCard
-                            numeroCartao={numeroCartao}
-                            nomeTitular={nomeTitular}
-                            vencimento={vencimento}
+                            numeroCartao={cards[0]?.numero || numeroCartao}
+                            nomeTitular={cards[0]?.nome || nomeTitular}
+                            vencimento={cards[0]?.validade || vencimento}
                             isValid={true}
                             triggerSend={false}
                         />

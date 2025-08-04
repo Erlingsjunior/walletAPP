@@ -118,7 +118,8 @@ export const CardContainer = styled(Animated.View)`
 export const CardGradient = styled.View<{ isValid: boolean }>`
     flex: 1;
     border-radius: 16px;
-    background-color: ${({ isValid }) => (isValid ? "#1a1a1a" : "#666666")};
+    background-color: ${({ isValid }: any) =>
+        isValid ? "#1a1a1a" : "#666666"};
     padding: 16px;
     justify-content: space-between;
 `;
@@ -144,7 +145,7 @@ export const CardChip = styled.View`
 `;
 
 export const CardNumber = styled.Text<{ hasValue: boolean }>`
-    color: ${({ hasValue }) =>
+    color: ${({ hasValue }: any) =>
         hasValue ? "#FFFFFF" : "rgba(255, 255, 255, 0.3)"};
     font-size: 16px;
     font-weight: 500;
@@ -172,7 +173,7 @@ export const CardLabel = styled.Text`
 `;
 
 export const CardName = styled.Text<{ hasValue: boolean }>`
-    color: ${({ hasValue }) =>
+    color: ${({ hasValue }: any) =>
         hasValue ? "#FFFFFF" : "rgba(255, 255, 255, 0.3)"};
     font-size: 10px;
     font-weight: 500;
@@ -180,7 +181,7 @@ export const CardName = styled.Text<{ hasValue: boolean }>`
 `;
 
 export const CardExpiry = styled.Text<{ hasValue: boolean }>`
-    color: ${({ hasValue }) =>
+    color: ${({ hasValue }: any) =>
         hasValue ? "#FFFFFF" : "rgba(255, 255, 255, 0.3)"};
     font-size: 10px;
     font-weight: 500;
@@ -191,7 +192,8 @@ export const StatusIndicator = styled.View<{ isValid: boolean }>`
     width: 8px;
     height: 8px;
     border-radius: 4px;
-    background-color: ${({ isValid }) => (isValid ? "#10B981" : "#EF4444")};
+    background-color: ${({ isValid }: any) =>
+        isValid ? "#10B981" : "#EF4444"};
     margin-top: 8px;
     align-self: center;
 `;

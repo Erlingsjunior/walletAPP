@@ -480,7 +480,7 @@ export const FormAddCard: React.FC<FormAddCardProps> = ({
                                         setNumeroCartao(formatted);
                                         // Limpar erro quando usuário digita
                                         if (errors.numeroCartao) {
-                                            setErrors((prev) => ({
+                                            setErrors((prev: any) => ({
                                                 ...prev,
                                                 numeroCartao: undefined,
                                             }));
@@ -516,7 +516,7 @@ export const FormAddCard: React.FC<FormAddCardProps> = ({
                                 onChangeText={(text: string) => {
                                     setNomeTitular(text);
                                     if (errors.nomeTitular) {
-                                        setErrors((prev) => ({
+                                        setErrors((prev: any) => ({
                                             ...prev,
                                             nomeTitular: undefined,
                                         }));
@@ -549,7 +549,7 @@ export const FormAddCard: React.FC<FormAddCardProps> = ({
                                         const formatted = formatExpiry(text);
                                         setVencimento(formatted);
                                         if (errors.vencimento) {
-                                            setErrors((prev) => ({
+                                            setErrors((prev: any) => ({
                                                 ...prev,
                                                 vencimento: undefined,
                                             }));
@@ -580,7 +580,7 @@ export const FormAddCard: React.FC<FormAddCardProps> = ({
                                     onChangeText={(text: string) => {
                                         setCodigoSeguranca(text);
                                         if (errors.codigoSeguranca) {
-                                            setErrors((prev) => ({
+                                            setErrors((prev: any) => ({
                                                 ...prev,
                                                 codigoSeguranca: undefined,
                                             }));
